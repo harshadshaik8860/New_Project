@@ -1,0 +1,24 @@
+.Ref{
+    background-color: #ccffcc;
+    overflow-y: hidden;
+    justify-content: center;
+    font-size:normal;
+    font-weight:normal;
+   
+}
+
+.form{
+    min-height: fit-content;
+    margin:10%;
+    width: 90%;
+    justify-content: center;
+}
+.bg{
+    background: rgb(108, 17, 161);
+    color: white;
+    
+}
+.bg1{
+    text-decoration: none;
+    color: white;
+}

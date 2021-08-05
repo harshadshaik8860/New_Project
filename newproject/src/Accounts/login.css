@@ -1,0 +1,11 @@
+.Loginbg{
+    background-color: blue;
+    width:100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.form{
+    justify-content: center;
+    margin-top: 100px;
+}
