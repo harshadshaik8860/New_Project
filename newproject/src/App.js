@@ -47,7 +47,6 @@ const App = ()=>{
   //   <Route  path="/dashboard" component={Dashboard}/></>
   // }
   }
-
   return(
   <Router>
    {redirect}
