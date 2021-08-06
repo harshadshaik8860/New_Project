@@ -121,6 +121,7 @@ if(formStatus==true){
              }
              if(loginStatus==true){
                this.setState({message:"Please Wait logging in...!"});
+            //   let url="http://localhost:3000/#/"
                window.location.reload();
              }else{
                this.setState({message1:"User Not found...!"})
@@ -128,30 +129,7 @@ if(formStatus==true){
           })
 
       }
-
-      if(formStatus===true){
-         var url = "http://localhost:3001/admis";
-         axios.get(url).then(response=>{
-            for(var i=0; i<response.data.length; i++){
-               if(email==response.data[i].email && password==response.data[i].password){
-                  localStorage.setItem("name", response.data[i].name);
-                  localStorage.setItem("userid", response.data[i].userid);
-                  loginStatus= true;
-                  break;
-               }
-            }
-            if(loginStatus==true){
-              this.setState({message:"Please Wait logging in...!"});
-              window.location.reload();
-            }else{
-              this.setState({message1:"User Not found...!"})
-            }
-         })
-
-     }
-         
-     }
-     
+   }
      // if((this.state.fields["email"]=="userid")  && (this.state.fields["password"]=="password")){
             
         //     let Url = "http://localhost:3003/admis" 

@@ -16,6 +16,7 @@ import Register from './Accounts/Register';
 import Dashboard from './Dashboard/Dashboard'
 import Admin from './Accounts/Admin'
 import RegisterForm from './Forms/Registerform';
+import AdminLogin from './Accounts/AdminLogin';
 
 
 
@@ -24,32 +25,50 @@ const App = ()=>{
   if(localStorage.getItem("useremail")===null){
    var redirect= <>
     <Route exact path="/" component={Login}/>
-    <Route exact path="/register" component={Register}/>
+    <Route exact path="/register" component={RegisterForm}/>
+    <Route path="/addstock" component={AddStock}/>
+    <Route exact path="/newarraivals" component={NewArraivals}/>
+    <Route exact path="/availablestock" component={AvailableStock}/>
+    <Route exact path="/oldstock" component={OldStock}/>
+    <Route exact path="/register" component={RegisterForm}/>
+    <Route path="/adminlogin" component={AdminLogin}/>
    
       </>
   }else{
     var redirect=
     <>
-    <Route  path="/" component={Header}/>
-    <Route  path="/home" component={Home}/>
-    <Route path="/register" component={RegisterForm}/>
-   </>
-  // if(localStorage.getItem("userid")===null){
-  //   var redirect=
-  //   <>
-  //   <Route exact path="/" component={Login}/>
-  //   <Route exact path="/admin" component={Admin}/>
     
-  //   </>
-  // }else{
-  //   var redirect=
-  //   <>
-  //   <Route  path="/dashboard" component={Dashboard}/></>
-  // }
+    {/* <Route exact path="/" component={Header}/> */}
+    <Route exact path="/" component={Home}/>
+    <Route path="/addstock" component={AddStock}/>
+    <Route exact path="/newarraivals" component={NewArraivals}/>
+    <Route exact path="/availablestock" component={AvailableStock}/>
+    <Route exact path="/oldstock" component={OldStock}/>
+    <Route exact path="/register" component={RegisterForm}/>
+    
+   </>
+  
+  if(localStorage.getItem("userid")===null){
+    var redirect1=
+    <>
+    <Route path="/adminlogin" component={AdminLogin}/>
+    <Route exact path="/admin" component={Admin}/>
+    
+    </>
+  }else{
+    var redirect1=
+    <>
+    <Route exact path="/dashboard" component={Dashboard}/>
+    </>
   }
+}
   return(
   <Router>
    {redirect}
+   {redirect1}
+   {/* <Route path="/adminlogin" component={AdminLogin}/>
+   <Route exact path="/admin" component={Admin}/>
+   <Route  path="/dashboard" component={Dashboard}/> */}
      </Router>
   )
  

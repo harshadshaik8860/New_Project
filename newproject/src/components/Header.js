@@ -9,7 +9,7 @@ const Header = ()=>{
       <>
     
     <ul className="nav  justify-content-end" sticky="top">
-      <li className="list"> <Link className="link active" to="/home">Home</Link> </li>
+      <li className="list"> <Link className="link active" to="/">Home</Link> </li>
       <li className="list"> <Link className="link" to="/newarraivals">New Arraivals</Link> </li>
       <li className="list"> <Link className="link" to="/availablestock">AvailableStock</Link> </li>
       <li className="list"> <Link className="link" to="/oldstock">OldStock</Link> </li>
@@ -26,7 +26,7 @@ const Header = ()=>{
 }
 const logout = ()=>{
   localStorage.clear()
-  let url = "http://localhost:3000/#/home";
-  window.location = url;
+  let url = "http://localhost:3000/#/";
+  window.location.reload(url)
 }
 export default Header;

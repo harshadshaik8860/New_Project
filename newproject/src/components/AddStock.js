@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import Header from './Header';
 import invalid from './invalid';
 
 class AddStock extends Component {
@@ -105,6 +106,7 @@ class AddStock extends Component {
     render() {
         return (
             <div>
+               <Header onClick={logout}/>
                 <div className="contaner containers">
                     <p className="text-center text-danger">{this.state.message}</p>
                    <p className="text-center text-success">{this.state.message2}</p>
@@ -209,6 +211,10 @@ class AddStock extends Component {
         )
     }
 }
-
+const logout = ()=>{
+    localStorage.clear();
+    let url = "http://localhost:3000/#/";
+    window.location.reload(url)
+}
 export default AddStock
 

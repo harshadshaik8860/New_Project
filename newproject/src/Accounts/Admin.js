@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import { useForm } from "react-hook-form";
 import { useState , useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../Accounts/Admin.css';
 
@@ -20,7 +21,7 @@ import '../Accounts/Admin.css';
         let URL = "http://localhost:3001/admis"
         axios.post(URL , userinfo)
        .then(response=>updatMessage("Register sucessfully..."))
-       let url = "http://localhost:3000/#/Login"
+       let url = "http://localhost:3000/#/"
     window.location = url
     }
 
@@ -136,6 +137,8 @@ import '../Accounts/Admin.css';
                             </div>
                             <div className="card-footer text-center bg-info">
                                 <button  type="submit" className="btn btn-primary btn-m ">Register</button>
+                                <hr/>
+                                <small className="text-white"><Link to="/adminlogin">Already Register? Login!</Link></small>
                             </div>
                         </div>
                     </div>

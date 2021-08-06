@@ -1,12 +1,14 @@
 import Register from "../Accounts/Register";
 import {Link} from 'react-router-dom'
 import '../Accounts/Register.css'
+import Header from "../components/Header";
 
 const RegisterForm = (props) => {
 
     return(
     //    {message , saveData, mes1, message1, processInput} = props
         <div className="Ref">
+            <Header/>
                 <form onSubmit={props.saveData} className="form">
                 <p className="text-danger text-center">{props.message}</p>
                 <p className="text-success text-center">{props.mes1}</p>              

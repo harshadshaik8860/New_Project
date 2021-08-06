@@ -5,6 +5,7 @@ import Geans from './Geans';
 import SportsWeare from './SportsWeare';
 import Shirts from './Shirts';
 import Tshirts from './Tshirts';
+import Header from './Header';
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
     
     const [state, setState] = useState([temp]);
     return (
+       <> <Header />
 
         <div className="row">
             <div className="col-lg-4">
@@ -75,7 +77,7 @@ const Home = () => {
             </div>
         </div>
 
-
+        </>
     )
 }
 export default Home;

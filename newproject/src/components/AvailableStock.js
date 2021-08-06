@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import Header from './Header';
 
  class AvailableStock extends Component {
      constructor(){
@@ -53,6 +54,7 @@ import React, { Component } from 'react'
     render() {
         return (
            <div className="Background">
+               <Header/>
                 <div className="container page">
                     <div className="row mt-5">
                          <div className="col-lg-12">

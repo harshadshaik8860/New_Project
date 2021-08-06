@@ -56,7 +56,7 @@ const Lform = (props)=>{
                             <div className="card-footer text-center bg-warning">
                                 <button type="submit" className="btn btn-info bg-primary text-white">Login</button>
                                 <hr/>
-                               <small className="text-center text-primary"><Link to="/register"> New User? Register!</Link></small>
+                               <small className="text-center text-primary"><Link to="/adminlogin">Login As Admin?Click here</Link><Link to="/register"> New User? Register!</Link></small>
                             </div>
                         </div>
                         </div>
