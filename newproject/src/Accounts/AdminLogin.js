@@ -23,15 +23,15 @@ const AdminLogin =()=> {
             for(var i=0; i<response.data.length; i++){
             if(userid==response.data[i].userid && password==response.data[i].password){
                 localStorage.setItem("name", response.data[i].name);
-                localStorage.setItem("email", response.data[i].email);
-                loginStatus = true;
+                localStorage.setItem("userid", response.data[i].userid);
+                loginStatus= true;
                 break;
             }
         }
-            if(loginStatus===true){
+            if(loginStatus==true){
                 updateMessage("Please wait Logining in ...!");
-                let url="http://localhost:3000/#/dashboard";
-                window.location= url;
+                window.location.href="http://localhost:3000/#/dashboard";
+                window.location.reload();
             }else{
                 updateMessage1("invalid Credentails..!")
             }
@@ -79,7 +79,7 @@ const AdminLogin =()=> {
                         <div className="card-footer text-center bg-info">
                             <button type="submit" className="btn btn-inf btn-m">Login</button>
                             <hr/>
-                            <small className="text-white text-center"><Link to="/admin">New user? Register here!</Link></small>
+                            <small className="text-white text-center"><Link to="/">Login as User? Click here!</Link> <Link to="/admin">New user? Register here!</Link></small>
                         </div>
                     </div>
                     </div>

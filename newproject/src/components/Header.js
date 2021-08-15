@@ -15,7 +15,7 @@ const Header = ()=>{
       <li className="list"> <Link className="link" to="/oldstock">OldStock</Link> </li>
       <li className="list"> <Link className="link" to="/addstock">Add stock</Link> </li>
       <li className="list"> <Link className="link" to="/register">Login/Register</Link> </li>
-       <li className="list" onClick={logout}><Link className="link"> Welocom {localStorage.getItem("userfname")} - logout </Link></li>
+       <li className="list" onClick={logout}><Link to ="" className="link"> Welocom {localStorage.getItem("userfname")} - logout </Link></li>
     </ul>
     
     </>

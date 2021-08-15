@@ -1,38 +1,32 @@
 import React from 'react'
+import {useState , useEffect} from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Data from './Data';
+import Header from './Header';
 
  const Shirts=()=> {
+
+    const [product, updateProduct]=useState([]);
+    const [error , updateError]=useState('');
+
+    const getData = ()=>{
+        
+        let Url = "http://localhost:3002/Shirts";
+        axios.get(Url)
+        .then(response=>updateProduct(response.data))
+            
+    }
+
+    useEffect(() => {
+       getData();
+    }, [true])
+
     return (
         <div>
-            <div className="row">
-            <div className="col-lg-4">
-                <ul className="list-group">
-                    <li className="list-group-item active text-center">Menu</li>
-                    <li className="list-group-item text-center ">
-                        <Link className="text-secondary" to="/home/tshirts">T-shirts </Link>
-                    </li>
-                    <li className="list-group-item text-center">
-                        <Link className="text-secondary" to="/home/shirts">Shirts </Link>
-                    </li>
-                    <li className="list-group-item text-center">
-                        <Link className="text-secondary" to="/home/geans">Geans </Link>
-                    </li>
-                    <li className="list-group-item text-center">
-                        <Link className="text-secondary" to="/home/sportsweare">SportsWeare</Link>
-                    </li>
-                </ul>
-
+            <Header />
+            <Data product={product}/>
             </div>
-            <div className="card">
-                <div className="card-header"></div>
-                <div className="card-body">
-                
-                </div>
-                <div className="card-footer"></div>
-                </div>
-            </div>
-        </div>
-       
         
     )
 }

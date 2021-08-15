@@ -121,7 +121,6 @@ if(formStatus==true){
              }
              if(loginStatus==true){
                this.setState({message:"Please Wait logging in...!"});
-            //   let url="http://localhost:3000/#/"
                window.location.reload();
              }else{
                this.setState({message1:"User Not found...!"})

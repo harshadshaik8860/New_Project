@@ -5,7 +5,7 @@ import Header from './Header';
     return (
         <div>
             <Header/>
-            <hi>Not available</hi>
+            <h1>Not available</h1>
         </div>
     )
 }

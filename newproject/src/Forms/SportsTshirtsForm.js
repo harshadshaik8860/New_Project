@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { Component } from 'react'
-import Header from './Header';
-import invalid from './invalid';
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
-class AddStock extends Component {
+
+class SportsTshirtsForm extends Component {
 
     constructor( props) {
         super(props);
@@ -36,7 +36,16 @@ class AddStock extends Component {
         let errorList = this.state.errorList;
         let formStatus = true;
     
-        if(!jeans["Model"] || jeans["Model"]==""){
+        if(!jeans["Pname"] || jeans["Pname"]==""){
+            formStatus = false;
+                errorList["nerror"] = "Please Enter Model name !";
+                
+        }else{
+            errorList["nerror"]= "";
+            
+        }
+
+        if(!jeans["Mname"] || jeans["Mname"]==""){
             formStatus = false;
                 errorList["merror"] = "Please Enter Model name !";
                 
@@ -79,11 +88,11 @@ class AddStock extends Component {
         })
 
         let mess = '';
-        if(!jeans["Model"] && !jeans["Price"] && !jeans["stock"]){
+        if(!jeans["Pname"] && !jeans["Mname"] && !jeans["Price"] && !jeans["Stock"] && !jeans["Size"]){
         formStatus = false
            mess="invalid Data ...!"
         }else{ 
-        let Url = "http://localhost:3002/Jeans"
+        let Url = "http://localhost:3002/SportsTshirts"
         let input = this.state.jeans;
         axios.post(Url, input)
             .then(response => {
@@ -94,7 +103,8 @@ class AddStock extends Component {
                     message:'',
                     name:''
                 })
-               
+               window.location.href="http://localhost:3000/#/dashboard";
+            //    window.location.reload();
             })
             this.setState({
                 message1:mess
@@ -106,7 +116,7 @@ class AddStock extends Component {
     render() {
         return (
             <div>
-               <Header onClick={logout}/>
+               
                 <div className="contaner containers">
                     <p className="text-center text-danger">{this.state.message}</p>
                    <p className="text-center text-success">{this.state.message2}</p>
@@ -120,15 +130,32 @@ class AddStock extends Component {
                                 </div>
                                 <div className="card-body">
                                 <p className="text-danger text-center"> {this.state.message1}</p>
-                                    <div className="row form-group">
+
+                                <div className="row form-group">
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-3 mr-2">
-                                            <label className="text-center">Model <i className="text-danger">*</i>:</label>
+                                            <label className="text-center">P.Name<i className="text-danger">*</i>:</label>
                                         </div>
                                         <div className="col-lg-5">
                                             <input type="text"
                                                 placeholder="Enter Model Name"
-                                                name="Model"
+                                                name="Pname"
+                                                value={this.state.name}
+                                                onChange={this.ProcessInput}
+                                                className="form-control" />
+                                                <small className="text-center text-danger">{this.state.errorList.nerror}</small>
+                                        </div>
+                                        <div className="col-lg-2"></div>
+                                    </div>
+                                    <div className="row form-group">
+                                        <div className="col-lg-2"></div>
+                                        <div className="col-lg-3 mr-2">
+                                            <label className="text-center">M.Name <i className="text-danger">*</i>:</label>
+                                        </div>
+                                        <div className="col-lg-5">
+                                            <input type="text"
+                                                placeholder="Enter Model Name"
+                                                name="Mname"
                                                 value={this.state.name}
                                                 onChange={this.ProcessInput}
                                                 className="form-control" />
@@ -167,38 +194,38 @@ class AddStock extends Component {
                                     <div className="row form-group">
                                         <div className="col-lg-2"></div>
                                         <div className="col-lg-3 mr-2">
-                                            <label className="text-center">Price <i className="text-danger">*</i>:</label>
+                                            <label className="text-center">AvailableStock<i className="text-danger">*</i>:</label>
                                         </div>
                                         <div className="col-lg-5">
                                             <input type="number"
                                                 placeholder="Enter Price"
-                                                name="Price"
-                                                value={this.state.name}
-                                                onChange={this.ProcessInput}
-                                                className="form-control" />
-                                                <small className="text-danger">{this.state.errorList.perror}</small>
-                                        </div>
-                                        <div className="col-lg-2"></div>
-                                    </div>
-
-                                    <div className="row form-group">
-                                        <div className="col-lg-2"></div>
-                                        <div className="col-lg-3 mr-2">
-                                            <label className="text-center">AvailableStock <i className="text-danger">*</i>:</label>
-                                        </div>
-                                        <div className="col-lg-5">
-                                            <input type="number"
-                                                placeholder="Enter Available Stock"
                                                 name="Stock"
                                                 value={this.state.name}
                                                 onChange={this.ProcessInput}
                                                 className="form-control" />
                                                 <small className="text-danger">{this.state.errorList.serror}</small>
+                                        </div>
+                                        <div className="col-lg-2"></div>
+                                    </div>
+                                    <div className="row form-group">
+                                        <div className="col-lg-2"></div>
+                                        <div className="col-lg-3 mr-2">
+                                            <label className="text-center">Price <i className="text-danger">*</i>:</label>
+                                        </div>
+                                        <div className="col-lg-5">
+                                            <input type="number"
+                                                placeholder="Enter Available Stock"
+                                                name="Price"
+                                                value={this.state.name}
+                                                onChange={this.ProcessInput}
+                                                className="form-control" />
+                                                <small className="text-danger">{this.state.errorList.perror}</small>
                                         </div> 
                                         <div className="col-lg-2"></div>
                                     </div>
                                 </div>
                                 <div className="card-footer text-center bg-secondary">
+                                <button type="reset" className="btn btn-primary mr-4"><Link to="/dashboard/shirts" className="text-white">Back</Link></button>
                                     <button type="submit" className="btn btn-primary">Save</button>
                                 </div>
                             </div>
@@ -211,10 +238,6 @@ class AddStock extends Component {
         )
     }
 }
-const logout = ()=>{
-    localStorage.clear();
-    let url = "http://localhost:3000/#/";
-    window.location = url
-}
-export default AddStock
+
+export default SportsTshirtsForm;
 

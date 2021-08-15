@@ -1,0 +1,19 @@
+.font{
+    font-size: x-small;
+    justify-content: center;
+}
+
+
+
+ul li:hover{
+ background:blueviolet;
+}
+
+ul li:active{
+    background:blue;
+}
+ul li:focus{
+    background:blue;
+}
+
+

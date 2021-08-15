@@ -104,10 +104,11 @@ color: blue;
 .lcard{
   
   margin:1px;
-  width:100%;
-  height:180px;
+  width:90%;
+  height:200px;
   float:left;
   justify-content: center;
+  color: black;
   
   
 }
