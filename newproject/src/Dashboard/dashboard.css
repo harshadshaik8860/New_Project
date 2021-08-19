@@ -3,17 +3,26 @@
     justify-content: center;
 }
 
-
-
-ul li:hover{
- background:blueviolet;
+.rounded .list{
+    text-decoration: none;
+    
 }
 
-ul li:active{
-    background:blue;
-}
-ul li:focus{
-    background:blue;
+.rounded .list-group .list-group-item:hover{
+background: blue;
+
 }
 
+.rounded .list-group .list-group-item{
+   
+    color:black;
+    text-decoration: none;
+    }
+    
+.rounded .list-group .list-group-item:focus{
+   
+        background-color: blueviolet !important;
+        color: white;
+        }
+        
 

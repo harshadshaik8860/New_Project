@@ -18,11 +18,11 @@ const AdminLogin =()=> {
 
      if(formStatus===true){
    
-        let url = "http://localhost:3001/admis";
+        let url = "http://localhost:3003/admins";
         axios.get(url).then(response=>{
             for(var i=0; i<response.data.length; i++){
             if(userid==response.data[i].userid && password==response.data[i].password){
-                localStorage.setItem("name", response.data[i].name);
+                localStorage.setItem("email", response.data[i].email);
                 localStorage.setItem("userid", response.data[i].userid);
                 loginStatus= true;
                 break;

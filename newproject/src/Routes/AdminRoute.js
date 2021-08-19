@@ -23,22 +23,22 @@ const AdminRoute = () =>{
     return(
         <div>
             <Route exact path="/dashboard" component={Dashboard}/>
-            <Route exact path="/dashboard/jeans" component={Jeans}/>
+            <Route exact path="/jeans" component={Jeans}/>
             <Route exact path="/addproducts" component={AddProducts}/>
-            <Route exact path="/dashboard/T-shirts" component={Tshirts}/>
+            <Route exact path="/T-shirts" component={Tshirts}/>
             <Route exact path="/tshirts" component={TshirtForm}/>
-            <Route exact path="/dashboard/shirts" component={Shirts}/>
-            <Route exact path="/shirts" component={ShirtsForm}/>
-            <Route exact path="/dashboard/shoes" component={Sheos}/>
-            <Route exact path="/shoes" component={ShoesForm}/>
-            <Route exact path="/dashboard/shorts" component={Shorts}/>
-            <Route exact path="/shorts" component={ShortsForm}/>
-            <Route exact path="/dashboard/sportstshirts" component={SportsTshirts}/>
-            <Route exact path="/sportstshirts" component={SportsTshirtsForm}/>
-            <Route exact path="/dashboard/sportsware" component={SportsWare}/>
-            <Route exact path="/sportsware" component={SportswareForm}/>
-            <Route exact path="/dashboard/electronics" component={Electronics}/>
-            <Route exact path="/electronics" component={ElectronicsForm}/>
+            <Route exact path="/shirts" component={Shirts}/>
+            <Route exact path="/shirtsform" component={ShirtsForm}/>
+            <Route exact path="/shoes" component={Sheos}/>
+            <Route exact path="/shoesfrom" component={ShoesForm}/>
+            <Route exact path="/shorts" component={Shorts}/>
+            <Route exact path="/shortsfrom" component={ShortsForm}/>
+            <Route exact path="/sportstshirts" component={SportsTshirts}/>
+            <Route exact path="/sportstshirtsform" component={SportsTshirtsForm}/>
+            <Route exact path="/sportsware" component={SportsWare}/>
+            <Route exact path="/sportswareform" component={SportswareForm}/>
+            <Route exact path="/electronics" component={Electronics}/>
+            <Route exact path="/electronicsform" component={ElectronicsForm}/>
         </div>
         
     )

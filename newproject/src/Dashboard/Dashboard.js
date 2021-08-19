@@ -20,15 +20,15 @@ const Dashboard =(props)=> {
         <div>
             <Logout />
             <div className="row">
-                <div className="col-3">
+                <div className="col-2">
                        <MenuList/>
                 </div>
                 <div className="col-8">
                      <div className="row mt-3">
-                         <div className="col-lg-5">
+                         <div className="col-lg-6">
                          <Tjeans/>
                          </div>
-                         <div className="col-lg-2"></div>
+                         <div className="col-lg-1"></div>
 
                          <div className="col-lg-5">
                          <Tshirts/>

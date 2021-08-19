@@ -27,10 +27,10 @@ const Sheos = () => {
         <div>
             <Logout/>
             <div className="row">
-                <div className="col-lg-3">
+                <div className="col-lg-2">
                     <MenuList/>
                 </div>
-                <div className="col-lg-7 mt-3">
+                <div className="col-lg-8 mt-3">
                
                             <table className="table table-bordered table-hover text-center">
                                 <thead className="text-white table-dark text-small">

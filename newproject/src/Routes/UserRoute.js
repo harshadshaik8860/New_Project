@@ -26,7 +26,7 @@ const UserRoute = ()=>{
      <Route path="/home/shirts" component={Shirts}/>
      <Route path="/home/geans" component={Geans}/>
      <Route path="/home/sportsweare" component={SportsWeare}/>
-     <Route  path="/dashboard" component={Dashboard}/>
+     
      </div>
     )
 }

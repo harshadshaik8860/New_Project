@@ -10,13 +10,22 @@ import Header from './Header';
              jeans : [],
              Tshirts:[],
              SportsWear : [],
-             message :''
+             message :'',
+             null : 'nodata'
          }
      }
 
+     geSportsWearData = ()=>{
+          axios.get("http://localhost:3002/SportsWeare")
+         .then(response=>{
+             this.setState({
+                 SportsWear: response.data
+             })
+         })
+     }
      getShirtsData = async()=>{
         let data =''
-        data = await axios.get("http://localhost:3002/shirts")
+        data = await axios.get("http://localhost:3002/Shirts")
          .then(response=>{ 
              if(response.data!=0){
              this.setState({
@@ -30,9 +39,18 @@ import Header from './Header';
             })
         }
 
+        getTshirtData = async(data)=>{
+           data = await axios.get("http://localhost:3002/Tshirts")
+           .then(response=>{
+               this.setState({
+                   Tshirts:response.data
+               })
+           })
+        }
+
         getJeansData = async()=>{
             let data =''
-            data = await axios.get("http://localhost:3002/jeans")
+            data = await axios.get("http://localhost:3002/Jeans")
              .then(response=>{ 
                  if(response.data!=0){
                  this.setState({
@@ -49,6 +67,8 @@ import Header from './Header';
      componentDidMount = ()=>{
          this.getShirtsData();
          this.getJeansData();
+         this.geSportsWearData();
+         this.getTshirtData();
 
      }
     render() {
@@ -107,7 +127,25 @@ import Header from './Header';
                                     <th>Available Stock</th>
                                 </tr>
                             </thead>
-
+                            <tbody className="text-center table-active">
+                               
+                                    
+                               {
+                                    this.state.Tshirts && this.state.Tshirts.length> 0 ?
+                                   this.state.Tshirts.map((tshirt , index)=>{
+                                       return(
+                                           <tr key={index} className="text-center" >
+                                               <td>{tshirt.id}</td>
+                                               <td>{tshirt.Model}</td>
+                                               <td>{tshirt.Price}</td>
+                                               <td>{tshirt.Stock}</td>
+                                           </tr>
+                                       );
+                                   })
+                                   :"nodata..."
+                               }
+                               
+                           </tbody>
                         </table>
                         </div>
                         </div>
@@ -132,8 +170,13 @@ import Header from './Header';
                                     <th>Available Stock</th>
                                 </tr>
                             </thead>
+                           
+                           
                                 <tbody className="text-center table-active">
+                               
+                                    
                                     {
+                                         this.state.jeans && this.state.jeans.length> 0 ?
                                         this.state.jeans.map((jean , index)=>{
                                             return(
                                                 <tr key={index}>
@@ -144,8 +187,11 @@ import Header from './Header';
                                                 </tr>
                                             );
                                         })
+                                        :null
                                     }
+                                    
                                 </tbody>
+    
                         </table>
                         </div>
                         <div className="col-lg-6">
@@ -161,6 +207,28 @@ import Header from './Header';
                                     <th>Available Stock</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                 
+                                {
+                                    this.state.SportsWear && this.state.SportsWear.length> 0 ?
+                                   
+                                    this.state.SportsWear.map((swear, index)=>{
+                                        return(
+                                            <tr key={index}>
+                                                <td>{swear.id}</td>
+                                                <td>{swear.Model}</td>
+                                                <td>{swear.Price}</td>
+                                                <td>{swear.Stock}</td>
+                                            </tr>
+                                            
+                                        )
+                                    })
+                                
+
+                               
+                                    : null
+                                }
+                            </tbody>
 
                         </table>
                         </div>

@@ -4,13 +4,14 @@ import React from 'react'
     return (
         <div>
             <div className="row p-2 bg-secondary">
-                <div className="col-lg-10 text-center">
+                <div className="col-lg-9 text-center">
                 
                 <h3 className="pt-2 pl-5 text-white"> Welcome to DashBoard</h3>
                 </div>
-                <div className="col-lg-2 pt-2">
+                <div className="col-lg-3 pt-2 pl-5">
                
-                     <button className="btn btn-primary btn-m" onClick={logout}> <i className="fa fa-user"></i> {localStorage.getItem("name")} - Logout <i className="fa fa-power-off"></i></button>
+                     <button className="btn btn-primary btn-m" onClick={logout}> 
+                     <i className="fa fa-user pr-1"></i> {localStorage.getItem("userid")} - Logout <i className="fa fa-power-off pl-2"></i></button>
                 </div>
             </div>
         </div>

@@ -225,7 +225,7 @@ class TshirtForm extends Component {
                                     </div>
                                 </div>
                                 <div className="card-footer text-center bg-secondary">
-                                <button type="reset" className="btn btn-primary mr-4"><Link to="/dashboard/T-shirts" className="text-white">Back</Link></button>
+                                <button type="reset" className="btn btn-primary mr-4"><Link to="/T-shirts" className="text-white">Back</Link></button>
                                     <button type="submit" className="btn btn-primary">Save</button>
                                 </div>
                             </div>
