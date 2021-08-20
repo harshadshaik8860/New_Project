@@ -9,6 +9,7 @@ const Tshorts = () => {
 
     const [product, updateProduct] = useState([]);
     const [error, updateError] = useState('');
+    const [message, updateMessage] = useState();
 
     const getData = () => {
 
@@ -18,8 +19,19 @@ const Tshorts = () => {
 
     }
 
+    const deleteData = (pid) =>{
+        axios.delete("http://localhost:3002/Shorts/"+pid)
+        .then(response=>{
+            updateMessage("Product Deleted successfully..")
+            getData();
+        })
+        
+    }
+
+
     useEffect(() => {
         getData();
+        deleteData();
     }, [true])
 
     return (
@@ -35,7 +47,7 @@ const Tshorts = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/shortsform"><i className="fa fa-plus fa-m"></i></Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -53,7 +65,8 @@ const Tshorts = () => {
                                         <td>{xpro.Price}</td>
                                         <td><Link to="/shorts"><i className="fa fa-plus fa-m"></i></Link></td>
                                         <td><Link to="/shorts"><i className="fa fa-edit"></i></Link></td>
-                                        <td><i className="fa fa-trash fa-m"></i></td>
+                                        <td><button onClick={deleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
+
                                         </tr> 
                         )
                                     })          

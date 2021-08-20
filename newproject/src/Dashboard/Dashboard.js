@@ -36,10 +36,11 @@ const Dashboard =(props)=> {
                      </div>
 
                      <div className="row mt-3">
-                         <div className="col-lg-5">
+                         <div className="col-lg-6">
+                             <p>{props.message}</p>
                          <TaShirts />
                          </div>
-                         <div className="col-lg-2"></div>
+                         <div className="col-lg-1"></div>
 
                          <div className="col-lg-5">
                          <Tshorts />
@@ -48,11 +49,11 @@ const Dashboard =(props)=> {
 
                      <div className="row mt-3">
                          
-                         <div className="col-lg-5">
+                         <div className="col-lg-6">
                          <TShoes />
                          </div> 
                          
-                         <div className="col-lg-2"></div>
+                         <div className="col-lg-1"></div>
 
                          <div className="col-lg-5">
                          <Tsports />
@@ -60,12 +61,13 @@ const Dashboard =(props)=> {
                         </div>
                      </div>
                      <div className="row mt-3">
-                         <div className="col-lg-5">
+                         <div className="col-lg-6">
                          <TsportsTshirts />
                          </div>
-                         <div className="col-lg-2"></div>
+                         <div className="col-lg-1"></div>
 
                          <div className="col-lg-5">
+                             <p>{props.message}</p>
                          <TElectronics />
                          </div>
                      </div>

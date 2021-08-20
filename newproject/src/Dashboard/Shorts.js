@@ -10,6 +10,7 @@ const Shorts = () => {
 
     const [product, updateProduct] = useState([]);
     const [error, updateError] = useState('');
+    const [messgae, updateMessage] = useState();
 
     const getData = () => {
 
@@ -18,9 +19,17 @@ const Shorts = () => {
             .then(response => updateProduct(response.data))
 
     }
+    const DeleteData = (pid)=>{
+        axios.delete("http://localhost:3002/Shorts/"+pid)
+        .then(response=>{
+            updateMessage("Dateled Successfully")
+            getData();
+        })
+    }
 
     useEffect(() => {
         getData();
+        DeleteData();
     }, [true])
 
     return (
@@ -41,7 +50,7 @@ const Shorts = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/shortsform"><i className="fa fa-plus fa-m"></i>Add</Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -57,9 +66,9 @@ const Shorts = () => {
                                         <td>{xpro.Size}</td>
                                         <td>{xpro.Stock}</td>
                                         <td>{xpro.Price}</td>
-                                        <td><Link to="/shorts"><i className="fa fa-plus fa-m"></i></Link></td>
+                                        <td><Link to="/shortsform"><i className="fa fa-plus fa-m"></i></Link></td>
                                         <td><Link to="/shorts"><i className="fa fa-edit"></i></Link></td>
-                                        <td><i className="fa fa-trash fa-m"></i></td>
+                                        <td><button onClick={DeleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
                                         </tr> 
                         )
                                     })          

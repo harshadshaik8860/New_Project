@@ -10,7 +10,7 @@ const Electronics = () => {
 
     const [product, updateProduct] = useState([]);
     const [error, updateError] = useState('');
-
+    const [message, updateMessage] = useState();
     const getData = () => {
 
         let Url = "http://localhost:3002/Electronics";
@@ -19,8 +19,17 @@ const Electronics = () => {
 
     }
 
+    const DeleteData = (pid)=>{
+        axios.delete("http://localhost:3002/Electronics/"+pid)
+        .then(response=>{
+            updateMessage("Dateled Successfully")
+            getData();
+        })
+    }
+
     useEffect(() => {
         getData();
+        DeleteData();
     }, [true])
 
     return (
@@ -41,7 +50,7 @@ const Electronics = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/electronicsform"><i className="fa fa-plus fa-m"></i>Add</Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -57,9 +66,9 @@ const Electronics = () => {
                                         <td>{xpro.Size}</td>
                                         <td>{xpro.Stock}</td>
                                         <td>{xpro.Price}</td>
-                                        <td><Link to="/electronics"><i className="fa fa-plus fa-m"></i></Link></td>
+                                        <td><Link to="/electronicsform"><i className="fa fa-plus fa-m"></i></Link></td>
                                         <td><Link to="/electronics"><i className="fa fa-edit"></i></Link></td>
-                                        <td><i className="fa fa-trash fa-m"></i></td>
+                                        <td><button onClick={DeleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
                                         </tr> 
                         )
                                     })          

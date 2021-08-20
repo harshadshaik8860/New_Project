@@ -9,6 +9,7 @@ const Tsports = () => {
 
     const [product, updateProduct] = useState([]);
     const [error, updateError] = useState('');
+    const [message, updateMessage] = useState();
 
     const getData = () => {
 
@@ -18,8 +19,17 @@ const Tsports = () => {
 
     }
 
+    const deleteData = (pid) =>{
+        axios.delete("http://localhost:3002/SportsWeare/"+pid)
+        .then(response=>{
+            updateMessage("Product Deleted successfully..")
+            getData();
+        })
+        
+    }
     useEffect(() => {
         getData();
+        deleteData();
     }, [true])
 
     return (
@@ -35,7 +45,7 @@ const Tsports = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/sportswareform"><i className="fa fa-plus fa-m"></i></Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -53,7 +63,7 @@ const Tsports = () => {
                                         <td>{xpro.Price}</td>
                                         <td><Link to="/sportsware"><i className="fa fa-plus fa-m"></i></Link></td>
                                         <td><Link to="/sportsware"><i className="fa fa-edit"></i></Link></td>
-                                        <td><i className="fa fa-trash fa-m"></i></td>
+                                        <td><button onClick={deleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
                                         </tr> 
                         )
                                     })          

@@ -9,17 +9,27 @@ const TElectronics = () => {
 
     const [product, updateProduct] = useState([]);
     const [error, updateError] = useState('');
+    const [message,updateMessage] = useState();
 
     const getData = () => {
-
+        
         let Url = "http://localhost:3002/Electronics";
-        axios.get(Url)
+            axios.get(Url)
             .then(response => updateProduct(response.data))
 
     }
 
+    const deleteData = (pid) =>{
+        axios.delete("http://localhost:3002/Electronics/"+pid)
+        .then(response=>{
+            updateMessage("Product deleted sucessfully...")
+            getData();
+        })
+    }
+
     useEffect(() => {
         getData();
+        deleteData();
     }, [true])
 
     return (
@@ -35,7 +45,7 @@ const TElectronics = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/electronicsform"><i className="fa fa-plus fa-m"></i></Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -51,9 +61,9 @@ const TElectronics = () => {
                                         <td>{xpro.Size}</td>
                                         <td>{xpro.Stock}</td>
                                         <td>{xpro.Price}</td>
-                                        <td><Link to="/electronics"><i className="fa fa-plus fa-m"></i></Link></td>
-                                        <td><Link to="/electronics"><i className="fa fa-edit fa-m"></i></Link></td>
-                                        <td><i className="fa fa-trash fa-m"></i></td>
+                                        <td><Link to="/electronicsform"><i className="fa fa-plus fa-m"></i></Link></td>
+                                        <td><Link to="/electronicsform"><i className="fa fa-edit fa-m"></i></Link></td>
+                                        <td><button onClick={deleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
                                         </tr> 
                         )
                                     })          

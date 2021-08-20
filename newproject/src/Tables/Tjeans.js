@@ -44,7 +44,7 @@ const Tjeans = () => {
                                         <th>Size</th>
                                         <th>A.Stock</th>
                                         <th>Price</th>
-                                        <th>Add</th>
+                                        <th><Link to="/addproducts"><i className="fa fa-plus fa-m"></i>Add</Link></th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
