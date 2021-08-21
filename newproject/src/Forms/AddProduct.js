@@ -80,14 +80,8 @@ class AddProducts extends Component {
             msg = "Higlighted fields should be filled";
         }else{
             msg="";
-        }
 
-        this.setState({
-            errorList,
-            message:msg
-        })
-
-        let mess = '';
+            let mess = '';
         if(!jeans["Pname"] && !jeans["Mname"] && !jeans["Price"] && !jeans["Stock"] && !jeans["Size"]){
         formStatus = false
            mess="invalid Data ...!"
@@ -110,6 +104,14 @@ class AddProducts extends Component {
                 message1:mess
             })
         }
+        }
+
+        this.setState({
+            errorList,
+            message:msg
+        })
+
+        
         
     }
 

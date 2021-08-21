@@ -61,7 +61,7 @@ const Tjeans = () => {
                                         <td>{xpro.Stock}</td>
                                         <td>{xpro.Price}</td>
                                         <td><Link to="/addproducts"><i className="fa fa-plus fa-m"></i></Link></td>
-                                        <td><Link to="/addproducts"><i className="fa fa-edit"></i></Link></td>
+                                        <td><Link to={`/${xpro.id}/editform`}><i className="fa fa-edit"></i></Link></td>
                                         <td><button onClick={deleteData.bind(this, xpro.id)}><i className="fa fa-trash fa-m"></i></button></td>
                                         </tr> 
                         )

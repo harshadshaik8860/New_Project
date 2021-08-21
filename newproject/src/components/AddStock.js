@@ -71,6 +71,29 @@ class AddStock extends Component {
             msg = "Higlighted fields should be filled";
         }else{
             msg="";
+
+            let mess = '';
+            if(!jeans["Model"] && !jeans["Price"] && !jeans["stock"]){
+            formStatus = false
+               mess="invalid Data ...!"
+            }else{ 
+            let Url = "http://localhost:3002/Jeans"
+            let input = this.state.jeans;
+            axios.post(Url, input)
+                .then(response => {
+                    this.setState({ 
+                        message2:'Data submited Successfully!',
+                        jeans : {},
+                        errorList:"",
+                        message:'',
+                        name:''
+                    })
+                   
+                })
+                this.setState({
+                    message1:mess
+                })
+            }
         }
 
         this.setState({
@@ -78,28 +101,7 @@ class AddStock extends Component {
             message:msg
         })
 
-        let mess = '';
-        if(!jeans["Model"] && !jeans["Price"] && !jeans["stock"]){
-        formStatus = false
-           mess="invalid Data ...!"
-        }else{ 
-        let Url = "http://localhost:3002/Jeans"
-        let input = this.state.jeans;
-        axios.post(Url, input)
-            .then(response => {
-                this.setState({ 
-                    message2:'Data submited Successfully!',
-                    jeans : {},
-                    errorList:"",
-                    message:'',
-                    name:''
-                })
-               
-            })
-            this.setState({
-                message1:mess
-            })
-        }
+       
         
     }
 

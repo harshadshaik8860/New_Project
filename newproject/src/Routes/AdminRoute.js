@@ -17,6 +17,7 @@ import Shorts from '../Dashboard/Shorts';
 import SportsTshirts from '../Dashboard/SportsTshirts';
 import SportsWare from '../Dashboard/SportsWare';
 import Electronics from '../Dashboard/Electronics';
+import EditForm from '../Forms/EditForms';
 
 
 const AdminRoute = () =>{
@@ -39,6 +40,7 @@ const AdminRoute = () =>{
             <Route exact path="/sportswareform" component={SportswareForm}/>
             <Route exact path="/electronics" component={Electronics}/>
             <Route exact path="/electronicsform" component={ElectronicsForm}/>
+            <Route path="/:id/editform" component={EditForm}/>
         </div>
         
     )
