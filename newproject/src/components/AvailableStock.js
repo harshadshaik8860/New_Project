@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import Header from './Header';
 
+
  class AvailableStock extends Component {
      constructor(){
          super();
