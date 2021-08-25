@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { Card, CardContent, CardHeader } from '@material-ui/core';
 
 
 
@@ -33,7 +34,7 @@ const Tjeans = () => {
 
     return (
         <div>
-               
+                       
                             <table className="table table-bordered text-center">
                                 <thead className="text-white table-dark text-small text-center">
                                 <tr><th colSpan="9"><h6 className="text-center">Jeans</h6></th></tr>
@@ -49,6 +50,7 @@ const Tjeans = () => {
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
+                               
                                 <tbody className="table-hover font">
                                 {
                     product.map((xpro , index)=>{
@@ -71,7 +73,8 @@ const Tjeans = () => {
                                 <tfooter>
                                     <p className="text-left" colSpan="8"> Seemore </p>
                                 </tfooter>
-                             </table>         
+                             </table> 
+                                    
                      
                 </div>
                 

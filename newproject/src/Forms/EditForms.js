@@ -1,10 +1,11 @@
 import React, {useState , useEffect}from 'react';
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import axios from 'axios';
 import { TextField , MenuItem, OutlinedInput,InputLabel, CardActions, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {Card , CardContent}from '@material-ui/core';
 import { Button } from '@material-ui/core';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+ 
 const EditForm = ()=>{
+    const history = useHistory();
     const sizes1 =[ {value:"26"}, {value: 28}, {value: 30}, {value: 32},{value: 34},{value: 36},{value: 38}]
     const classes = useStyles();
   
@@ -75,6 +78,8 @@ const EditForm = ()=>{
         axios.put("http://localhost:3002/Jeans/"+id ,updata)
         .then(response=>{
             updateMessage(pname + "Data Updated Sucessful..")
+       window.location.href='http://localhost:3000/#/dashboard'
+     window.location.reload();
 
         })
         updateSize("");
@@ -82,7 +87,9 @@ const EditForm = ()=>{
         updateMname("");
         updateStock("");
         updatePrice("")
+        
     }
+    
         
     return(
 
@@ -164,6 +171,14 @@ const EditForm = ()=>{
                    onClick={updateInfo}
                    >
                        UpdateInfo
+                   </Button>
+                   <Button 
+                   variant="contained"
+                   color="primary"
+                   
+                   onClick={()=>history.push("/dashboard")}
+                   >
+                       Back
                    </Button>
                    </CardActions>
                 </Card>
