@@ -19,7 +19,7 @@ import '../Accounts/Admin.css';
     const onSubmit =(data)=>{
        
         let userinfo = data
-        let URL = "http://localhost:3001/admis"
+        let URL = "http://localhost:3003/admins"
         axios.post(URL , userinfo)
        .then(response=>updatMessage("Register sucessfully..."))
        let url = "http://localhost:3000/#/"

@@ -157,7 +157,6 @@ if(formStatus==true){
             message1={this.state.message1}
             name={this.state.name}
             />
-
             // <div className="Loginbg">
             //     <form onSubmit={this.login}>
             //         <p className="text-danger text-center">{this.state.mes}</p>

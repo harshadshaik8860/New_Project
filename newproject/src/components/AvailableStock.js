@@ -1,18 +1,20 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import Header from './Header';
+import Geans from './Geans';
 
 
  class AvailableStock extends Component {
-     constructor(){
-         super();
+     constructor(props){
+         super(props);
          this.state={
              shirts : [],
              jeans : [],
              Tshirts:[],
              SportsWear : [],
              message :'',
-             null : 'nodata'
+             null : 'nodata',
+             cart:''
          }
      }
 
@@ -24,6 +26,16 @@ import Header from './Header';
              })
          })
      }
+
+     getCart = () =>{
+        axios.get("http://localhost:3002/CartItems")
+        .then(response=>{
+            this.setState({
+                cart:response.data
+        })
+    })
+}
+
      getShirtsData = async()=>{
         let data =''
         data = await axios.get("http://localhost:3002/Shirts")
@@ -70,12 +82,13 @@ import Header from './Header';
          this.getJeansData();
          this.geSportsWearData();
          this.getTshirtData();
-
+        this.getCart();
      }
+
     render() {
         return (
            <div className="Background">
-               <Header/>
+               <Header cartitem={this.state.cart.length}/>
                 <div className="container page">
                     <div className="row mt-5">
                          <div className="col-lg-12">
