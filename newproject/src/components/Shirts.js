@@ -9,6 +9,7 @@ import Header from './Header';
 
     const [product, updateProduct]=useState([]);
     const [error , updateError]=useState('');
+    const [cart , updateCartItem] = useState([]);
 
     const getData = ()=>{
         
@@ -18,13 +19,23 @@ import Header from './Header';
             
     }
 
+   
+
+  const getCart = () =>{
+    axios.get("http://localhost:3002/CartItems")
+    .then(response=>{updateCartItem(response.data)
+    })
+}
+
     useEffect(() => {
        getData();
+       getCart();
     }, [true])
+
 
     return (
         <div>
-            <Header />
+            <Header  cartitem={cart.length}/>
             <Data product={product}/>
             </div>
         

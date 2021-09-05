@@ -8,19 +8,26 @@ import Data from './Data';
 
     const [product , updateProduct] = useState([]);
     const [message, updateMessage] = useState();
+    const [cart , updateCartItem] = useState([]);
 
     const getData = () =>{
-        axios.get("http://localhost:3002/SportsWeare")
+        axios.get("http://localhost:3002/SportsTshirts")
         .then(response=>updateProduct(response.data))
+    }
+    const getCart = () =>{
+        axios.get("http://localhost:3002/CartItems")
+        .then(response=>{updateCartItem(response.data)
+        })
     }
 
     useEffect(()=>{
         getData();
+        getCart();
     },[true])
 
     return (
         <div>
-            <Header />
+            <Header cartitem={cart.length} />
             <Data product={product}/>
         </div>
     )

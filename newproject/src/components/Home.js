@@ -1,24 +1,38 @@
 import React from 'react'
-import {useState} from 'react'
-import { Link , Switch, Route, useParams} from 'react-router-dom';
-import Geans from './Geans';
-import SportsWeare from './SportsWeare';
-import Shirts from './Shirts';
-import Tshirts from './Tshirts';
+import {useState ,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import Header from './Header';
+import axios from 'axios';
 
 
 
 
 
 const Home = () => {
+    
+
     const temp = {
         "photo":"1.jpg"
     };
     
+
+    
     const [state, setState] = useState([temp]);
+    const [cart , updateCartItem] = useState([]);
+   
+    const getCart = () =>{
+        axios.get("http://localhost:3002/CartItems")
+        .then(response=>{updateCartItem(response.data)
+        })
+    }
+
+    useEffect (() => {
+       
+       getCart();
+    }, [true])
+
     return (
-       <> <Header />
+       <> <Header cartitem={cart.length}/>
 
         <div className="row">
             <div className="col-lg-4">

@@ -5,13 +5,15 @@ import Header from "../components/Header";
 
 const RegisterForm = (props) => {
 
+ const  {message , saveData, mes1, message1, processInput} = props
     return(
-    //    {message , saveData, mes1, message1, processInput} = props
+      
         <div className="Ref">
             <Header/>
-                <form onSubmit={props.saveData} className="form">
-                <p className="text-danger text-center">{props.message}</p>
-                <p className="text-success text-center">{props.mes1}</p>              
+            <div>
+                <form onSubmit={saveData} className="form">
+                <p className="text-danger text-center">{message}</p>
+                <p className="text-success text-center">{mes1}</p>              
                 <div className="row">
                     
                     <div className="col-lg-3"></div>
@@ -21,7 +23,7 @@ const RegisterForm = (props) => {
                                 Register
                             </div>
                             <div className="card-body">
-                            <p className="text-danger text-center">{props.message1}</p>
+                            <p className="text-danger text-center">{message1}</p>
                             <div className="row form-group">
 
                                 <div className="col-lg-4">
@@ -29,6 +31,7 @@ const RegisterForm = (props) => {
                                     <input type="text" 
                                     placeholder="Enter First name" 
                                     name="userfname"
+                                    autoFocus
                                     onChange={props.processInput}
                                     value={props.name}
                                     className="form-control form-control-sm"/>
@@ -114,18 +117,9 @@ const RegisterForm = (props) => {
                                     
                                 <div className="col-lg-9">
                                 <div className="row form-group">
-                                <div className="col-lg-6">
-                                <input type="radio" 
-                                name="userm" 
-                                onChange={props.processInput} 
-                                value={props.name} 
-                                className="mr-3"/> Male
-                                     </div>
-                                <div className="col-lg-6"><input type="radio"
-                                    name="userf"
-                                    onChange={props.processInput}
-                                    value={props.name}
-                                     className="mr-3"/> FeMale</div>
+                                
+                                <div class="col-lg-6"><input type="radio" value="Male" name="gender"  onChange={props.processInput} class="mr-3"/> Male</div>
+								<div class="col-lg-6"><input type="radio" value="female" name="gender"   onChange={props.processInput}class="mr-3"/> FeMale</div>
                                 </div>
                                 <small className="text-danger">{props.merror}</small>
                                 </div>
@@ -204,7 +198,8 @@ const RegisterForm = (props) => {
                                    <input type="checkbox" 
                                    name="terms"
                                    onChange={props.processInput}
-                                   value={props.name}
+                                   value1={props.name}
+                                   value="accepted"
                                    className="mr-4" /><i className="text-danger">*</i> I've accept the Term's and conditions
                                </small>
                                <br/>
@@ -222,7 +217,8 @@ const RegisterForm = (props) => {
                      </div>
                     <div className="col-lg-3"></div>
                 </div>
-                </form>    
+                </form> 
+                </div>   
             </div>
            
     );

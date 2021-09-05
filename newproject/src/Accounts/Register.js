@@ -11,7 +11,9 @@ class Register extends Component {
             userData:{},
             errorData:{},
             message:'',
-            message1:''
+            message1:'',
+            value:''
+        
            
             
         }
@@ -21,6 +23,7 @@ class Register extends Component {
     processInput = (obj) =>{
         let userData = this.state.userData;
         userData[obj.target.name]=obj.target.value;
+        
         this.setState({
             userData
         })
@@ -31,6 +34,9 @@ class Register extends Component {
         let userData = this.state.userData;
         let errorData = this.state.errorData;
         let formStatus = true;
+        let ppattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/;
+
+ if(formStatus===true){
 
         if (!userData["userfname"] || userData["userfname"]=="") {
             formStatus = false;
@@ -73,6 +79,14 @@ class Register extends Component {
         }else{
            
             errorData["passworderror"] = "";
+            if(!ppattern.test(userData["userpassword"])){
+                formStatus = false;
+                errorData["passworderror"]= " please Enter valid password!"
+                
+             }else{
+                errorData["passworderror"]="";
+               
+             }
         }
 
         if(!userData["userrpass"] || userData["userrpass"]==""){
@@ -81,6 +95,15 @@ class Register extends Component {
         }else{
             
              errorData["rpasserror"] = "";
+             if(!ppattern.test(userData["userrpass"])){
+                formStatus = false;
+                errorData["rpasserror"]= " please Enter valid password!"
+                
+                 
+             }else{
+                errorData["rpasserror"]="";
+               
+             }
 
         }
 
@@ -93,7 +116,7 @@ class Register extends Component {
             errorData["doberror"] = "";
         }
 
-        if(!(userData["userm"]) && (userData["userf"]=="")){
+        if(!userData["gender"]){
             formStatus = false;
             errorData["merror"] = "Please select the gender!";
         }else{
@@ -137,7 +160,7 @@ class Register extends Component {
             errorData["pinerror"] = "";
         }
 
-        if(!userData["terms"]==""){
+        if(!userData["terms"] || userData["terms"]==""){
             formStatus = false;
             errorData["termserror"]= "Please accept the term's!";
         }else{
@@ -166,12 +189,13 @@ class Register extends Component {
             let input = this.state.userData;
             axios.post(Url, input)
             .then(response=>{
-                this.setState({
+                this.setState({  
                     userData:{},
                     errorData:'',
                     mes1 : "data submited sucessfully..!",
                     message:'',
-                    name:""
+                    name:"",
+                    value:''
                 })
             })
             this.setState({
@@ -185,6 +209,7 @@ class Register extends Component {
         }
         
     }
+}
     render() {
         return (
             <Registerform 
@@ -207,6 +232,8 @@ class Register extends Component {
            pinerror={this.state.errorData.pinerror}
            termserror={this.state.errorData.termserror}
            name={this.state.name}
+           
+          
            
             />
         )

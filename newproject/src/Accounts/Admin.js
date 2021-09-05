@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../Accounts/Admin.css';
 
+
+
 //this comment is added by harshad
 
  const Admin =()=> {
@@ -14,12 +16,13 @@ import '../Accounts/Admin.css';
     password.current = watch("password", "");
     // const [userinfo , updateUserinfo] = useState("");
     const [message , updatMessage] = useState("");
-
+    
+    
      
     const onSubmit =(data)=>{
        
         let userinfo = data
-        let URL = "http://localhost:3001/admis"
+        let URL = "http://localhost:3003/admins"
         axios.post(URL , userinfo)
        .then(response=>updatMessage("Register sucessfully..."))
        let url = "http://localhost:3000/#/"
@@ -43,8 +46,10 @@ import '../Accounts/Admin.css';
                                     <label htmlFor="name" >Name</label>
                                     <input type="text"
                                         name="name"
+                                       
                                         placeholder="Enter name"
                                         className="form-control" 
+                                       autoFocus
                                         {...register("name", {required: true })}
                                     />
                                    {errors.name?<p className="text-danger">Name is required!</p>:null} 
@@ -55,6 +60,7 @@ import '../Accounts/Admin.css';
                                     <label htmlFor="userid">User Id</label>
                                     <input type="text"
                                         name="userid"
+                                        id="txt2"
                                         placeholder="Enter userid"
                                         className="form-control"
                                         {...register("userid",{ required: true, 
@@ -149,4 +155,5 @@ import '../Accounts/Admin.css';
         </div>
     )
 }
+
 export default Admin;

@@ -7,6 +7,7 @@ import RegisterForm from './Forms/Registerform';
 import AdminLogin from './Accounts/AdminLogin';
 import AdminRoute from './Routes/AdminRoute';
 import UserRoute from './Routes/UserRoute';
+import Register from './Accounts/Register';
 
 
 
@@ -17,7 +18,7 @@ const App = ()=>{
     var user =
     <>
     <Route exact path="/" component={Login}/>
-     <Route exact path="/register" component={RegisterForm}/>
+     <Route exact path="/register" component={Register}/>
      
     </>}
     else{
