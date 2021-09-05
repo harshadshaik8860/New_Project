@@ -12,6 +12,10 @@ import RegisterForm from '../Forms/Registerform';
 import MyOrders from '../components/MyOrders';
 import MyCart from '../components/MyCart';
 import Deatils from '../components/Deatils';
+import Parent from '../components/parent';
+import Child from '../components/child';
+import ParentClass from '../components/ParentClass';
+import ChildClass from '../components/ChildClass';
 
 const UserRoute = ()=>{  
      
@@ -27,6 +31,10 @@ const UserRoute = ()=>{
      <Route path="/home/shirts" component={Shirts}/>
      <Route path="/home/geans" component={Geans}/>
      <Route path="/home/sportsweare" component={SportsWeare}/>
+     <Route exact path="/parent" component={Parent}/>
+  <Route exact path="/child" component={Child}/>
+  <Route exact path="/parentclass" component={ParentClass}/>
+  <Route exact path="/childclass" component={ChildClass}/>
     
      {/* <Route path="/Details" component={Deatils}/> */}
      
