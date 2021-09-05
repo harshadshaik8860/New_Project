@@ -31,6 +31,7 @@ const RegisterForm = (props) => {
                                     <input type="text" 
                                     placeholder="Enter First name" 
                                     name="userfname"
+                                    autoFocus
                                     onChange={props.processInput}
                                     value={props.name}
                                     className="form-control form-control-sm"/>

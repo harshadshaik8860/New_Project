@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Login from '../Accounts/Login';
 
 const Lform = (props)=>{
+    
 
     
    
@@ -28,6 +29,7 @@ const Lform = (props)=>{
                                 <input type="email" 
                                 placeholder="Enter email id" 
                                 name="email"
+                                autoFocus
                                 onChange={props.ProcessInput}
                                 value={props.name}
                                 className="form-control" />

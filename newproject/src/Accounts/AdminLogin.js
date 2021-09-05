@@ -9,6 +9,7 @@ const AdminLogin =()=> {
     const [message1 , updateMessage1] = useState();
     const { register, handleSubmit, formState: {errors},} = useForm();
 
+   
     const login = (data)=>{
     
     let loginStatus = false;
@@ -57,6 +58,7 @@ const AdminLogin =()=> {
                                         name="userid"
                                         placeholder="enter userid"
                                         className="form-control"
+                                        autoFocus
                                         {...register("userid",{required:true ,
                                                                 pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~])/})}
                                         />

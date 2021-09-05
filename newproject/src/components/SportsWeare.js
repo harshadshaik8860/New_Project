@@ -11,7 +11,7 @@ import Data from './Data';
     const [cart , updateCartItem] = useState([]);
 
     const getData = () =>{
-        axios.get("http://localhost:3002/SportsWeare")
+        axios.get("http://localhost:3002/SportsTshirts")
         .then(response=>updateProduct(response.data))
     }
     const getCart = () =>{

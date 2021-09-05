@@ -11,6 +11,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import RegisterForm from '../Forms/Registerform';
 import MyOrders from '../components/MyOrders';
 import MyCart from '../components/MyCart';
+import Deatils from '../components/Deatils';
 
 const UserRoute = ()=>{  
      
@@ -26,6 +27,8 @@ const UserRoute = ()=>{
      <Route path="/home/shirts" component={Shirts}/>
      <Route path="/home/geans" component={Geans}/>
      <Route path="/home/sportsweare" component={SportsWeare}/>
+    
+     {/* <Route path="/Details" component={Deatils}/> */}
      
      </div>
     )
