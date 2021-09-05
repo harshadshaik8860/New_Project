@@ -31,16 +31,7 @@ const Geans = (props) => {
 
     }
 
-    //     const addCount = ()=>{
-    //         let counter={
-    //             "Qty":count
-    //         }
-    //         let url = "http://localhost:3002/CartItems"
-    //         axios.post(url , counter)
-    //         .then(response=>{
-    //             updateMessage("Added successfull")
-    //     })
-    // }
+    // code removed
 
     const addCart = (productData) => {
 
