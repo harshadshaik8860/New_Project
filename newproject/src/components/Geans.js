@@ -32,6 +32,7 @@ const Geans = (props) => {
     }
 
     // code removed
+    //code added by Dev
 
     const addCart = (productData) => {
 
