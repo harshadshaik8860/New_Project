@@ -10,8 +10,6 @@ import UserRoute from './Routes/UserRoute';
 import Register from './Accounts/Register';
 
 
-
-
 const App = ()=>{
 
 
