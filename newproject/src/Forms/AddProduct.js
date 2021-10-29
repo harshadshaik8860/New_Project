@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 
+// just checking
 
 class AddProducts extends Component {
 
@@ -13,10 +14,7 @@ class AddProducts extends Component {
             errorList:{},
             message: '',
             message1:''
-           
             
-            
-
         }
     }
 
