@@ -13,8 +13,6 @@ class AddProducts extends Component {
             errorList:{},
             message: '',
             message1:''
-           
-            
             
 
         }
